@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double originalPrice, markUp, salesTax, sellingPrice, taxRate, finalPrice;
+    
+    cout << "Please enter the original price of the item $";
+    cin >> originalPrice;   
+    
+    cout << "Please enter markup percentage %";
+     cin >> markUp;
+
+    cout << "Please enter sales tax rate";
+    cin >> taxRate;
+
+    double taxRateDisplay = taxRate;
+    double markUpDisplay = markUp;
+
+    markUp = markUp / 100;
+    taxRate = taxRate / 100; 
+
+    sellingPrice = (markUp * originalPrice) + originalPrice;
+    salesTax = taxRate * sellingPrice;
+    finalPrice = sellingPrice + salesTax; 
+
+    cout << "The original price is $" << originalPrice << "\n";
+    cout << "The price is marked up by " << markUpDisplay << "%\n";
+    cout << "The selling price is " << sellingPrice << "\n";
+    cout << "The sales tax rate is " << taxRateDisplay << "%\n";
+    cout << "The sales tax is " << salesTax << "\n";
+    cout << "The final price of this item is $" << finalPrice << "\n";
+
+    return 0;
+}
