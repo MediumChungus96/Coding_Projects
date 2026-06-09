@@ -1,0 +1,40 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+    // Declarations
+    string lastName, firstName, inputFileName;
+    double currentSalary, updatedSalary, percentIncrease;
+
+    ifstream inFile;
+    ofstream outFile;
+
+    // Get filename from user at runtime
+    cout << "Enter the input filename: ";
+    cin >> inputFileName;
+
+    // Open files
+    inFile.open(inputFileName);
+    outFile.open("Ch3_Ex5Output.dat");
+
+    // Read and process all employees
+    while (inFile >> lastName >> firstName >> currentSalary >> percentIncrease) {
+
+        // Calculate updated salary
+        updatedSalary = currentSalary + (currentSalary * (percentIncrease / 100.0));
+
+        // Write to output file
+        outFile << fixed << setprecision(2);
+        outFile << firstName << " " << lastName << " " << updatedSalary << "\n";
+    }
+
+    // Close files
+    inFile.close();
+    outFile.close();
+
+    return 0;
+}
