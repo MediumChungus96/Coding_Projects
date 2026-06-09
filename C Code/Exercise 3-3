@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    //declarations
+    double kg, lb;
+
+    cout << "Please enter your weight in kilograms: " << '\n';
+    cin >> kg;
+    lb = 2.2 * kg;
+    cout << fixed << setprecision(2);
+    cout << "Your weight is: " << lb << " pounds" << '\n';
+
+    return 0;
+}
