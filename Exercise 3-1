@@ -1,0 +1,62 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    // Declare variables
+    string firstName, lastName, department;
+    double monthlyGrossSalary, monthlyBonus, taxes;
+    double distanceTraveled, travelingTime;
+    double coffeeCups, costPerCup;
+    double payCheck, averageSpeed, salesAmount;
+
+    ifstream inFile;
+    ofstream outFile;
+
+    // Open files
+    inFile.open("inData.txt");
+    outFile.open("outData.txt");
+
+    // Read from inData.txt
+    inFile >> firstName >> lastName >> department;
+    inFile >> monthlyGrossSalary >> monthlyBonus >> taxes;
+    inFile >> distanceTraveled >> travelingTime;
+    inFile >> coffeeCups >> costPerCup;
+
+    // Calculations
+    payCheck     = (monthlyGrossSalary + (monthlyGrossSalary * (monthlyBonus / 100.0)))
+                   * (1.0 - (taxes / 100.0));
+    averageSpeed = distanceTraveled / travelingTime;
+    salesAmount  = coffeeCups * costPerCup;
+
+    // Write to outData.txt
+    outFile << fixed << setprecision(2);
+
+    outFile << "Name: " << firstName << " " << lastName
+            << ", Department: " << department << "\n";
+    outFile << "Monthly Gross Salary: $" << monthlyGrossSalary
+            << ", Monthly Bonus: " << monthlyBonus
+            << "%, Taxes: " << taxes << "%" << "\n";
+    outFile << "Paycheck: $" << payCheck << "\n";
+
+    outFile << "\n";
+
+    outFile << "Distance Traveled: " << distanceTraveled
+            << " miles, Traveling Time: " << travelingTime << " hours" << "\n";
+    outFile << "Average Speed: " << averageSpeed << " miles per hour" << "\n";
+
+    outFile << "\n";
+
+    outFile << "Number of Coffee Cups Sold: " << coffeeCups
+            << ", Cost: $" << costPerCup << " per cup" << "\n";
+    outFile << "Sales Amount = $" << salesAmount << "\n";
+
+    // Close files
+    inFile.close();
+    outFile.close();
+
+    return 0;
+}
