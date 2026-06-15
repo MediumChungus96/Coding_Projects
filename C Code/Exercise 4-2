@@ -1,0 +1,29 @@
+#include <iostream>
+#include <utility>
+
+using namespace std;
+
+int main() {
+    //declare variables
+    double x;
+    double y; 
+    double z;
+
+    //start program logic
+    cout << "please enter a value for x: " << '\n';
+    cin >> x;
+    cout << "please enter a value for y: " << '\n';
+    cin >> y;
+    cout << "please enter a value for z: " << '\n';
+    cin >> z;
+
+    if (x > y) swap (x,y);
+    if (x > z) swap (x,z);
+    if (y > z) swap (y,z);
+
+    //output is ascending order
+
+    cout << x << " " << y << " " << z;
+
+    return 0;
+}
