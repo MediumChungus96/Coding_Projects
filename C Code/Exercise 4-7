@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    //variables
+    double a;
+    double b;
+    double c;
+    double x1;
+    double x2;
+
+    //input statements
+    cout << "Please enter a value for a: " << endl;
+    cin >> a;
+    cout << "Please enter a value for b: " << endl;
+    cin >> b;
+    cout << "Please enter a value for c: " << endl;
+    cin >> c;
+
+    //root type determination
+    cout << fixed << setprecision(2); 
+    if (b * b - 4 * a * c == 0)
+        {
+            cout << "The equation has a single (repeated) root." << endl;
+        }
+    if (b * b - 4 * a * c > 0)
+        {
+            cout << "The equation has two real roots." << endl;
+        }
+    if (b * b - 4 * a * c < 0)
+        {
+            cout << "The equation has two complex roots." << endl;
+        }
+    if (b *b - 4 * a * c >= 0)
+        {
+            x1 = (-b + sqrt(b * b - 4 * a * c)) / (2 *a);
+            x2 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
+            cout << x1 << " " << x2 << endl;
+        }
+    return 0;
+}
