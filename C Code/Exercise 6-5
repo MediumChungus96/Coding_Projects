@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+bool isWhiteSpace(char x) {
+    if(x == ' ')
+    return true;
+    else
+    return false;
+}
+
+bool isFloor(double y, double a, double b) {
+    if(floor(y) == floor(a * b))
+    return true;
+    else
+    return false;
+}
+
+int main() {
+
+    char x;
+    cout << "Please enter a character: ";
+    cin.get(x);
+    
+    bool result = isWhiteSpace(x);
+        if (result) {cout << "The character you entered is a whitespace character." << endl;
+            }
+            else {cout << "The character you entered is not a whitespace character." << endl;
+            }
+
+    double a, b, y;
+    cout << "please enter 3 numbers seperated by a space: ";
+    cin >> a >> b >> y;
+
+    bool result2 = isFloor(y, a, b);
+        if(result2) {
+            cout << "The product of the first two numbers is equal to the floor of the third number" << endl;
+            }
+            else {
+            cout << "The product of the first two numbers is not equal to the floor of the third number" << endl;
+            }
+
+        
+    
+    return 0;
+}
