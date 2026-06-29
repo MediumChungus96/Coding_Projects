@@ -1,0 +1,64 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+bool isPalindrome(string str) {
+int length = str.length(); 
+for (int i = 0; i < length / 2; i++) {
+    if (toupper(str[i]) != toupper(str[length - 1 - i])) {
+         return false;
+    }  // if    
+  } // for loop
+ return true;
+}// isPalindrome
+
+int main() {
+
+
+    bool result = isPalindrome("Madam");
+    if (result) {
+        cout << "Madam is a palindrome." << endl;
+    } else {
+        cout << "Madam is not a palindrome." << endl;
+    }
+
+    bool result2 = isPalindrome("abBa");
+    if (result2) {
+        cout << "abBa is a palindrome." << endl;
+    } else {
+        cout << "abBa is not a palindrome." << endl;
+    }
+
+    bool result3 = isPalindrome("22");
+    if (result3) {
+        cout << "22 is a palindrome." << endl;
+    } else {
+        cout << "22 is not a palindrome." << endl;
+    }
+
+    bool result4 = isPalindrome("67876");
+    if (result4) {
+        cout << "67876 is a palindrome." << endl;
+    } else {
+        cout << "67876 is not a palindrome." << endl;
+    }
+
+    bool result5 = isPalindrome("444244");
+    if (result5) {
+        cout << "444244 is a palindrome." << endl;
+    } else {
+        cout << "444244 is not a palindrome." << endl;
+    }
+
+    bool result6 = isPalindrome("trYmeuemyRT");
+    if (result6) {
+        cout << "trYmeuemyRT is a palindrome." << endl;
+    } else {
+        cout << "trYmeuemyRT is not a palindrome." << endl;
+    }
+
+    return 0;
+}
