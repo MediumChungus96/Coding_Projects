@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+bool isVowel(char ch);
+
+bool isVowel(char ch) {
+    if(ch == 'a' ||ch == 'e' ||ch == 'i' ||ch == 'o' ||ch == 'u' ||ch == 'A' ||ch == 'E' ||ch == 'I' ||ch == 'O' ||ch == 'U')
+    return true;
+else 
+    return false;
+}
+
+int main() {
+    char x;
+    int vowel = 0;
+
+    cout << "Please enter a sentence: ";
+    
+    cin.get(x);
+    while (x != '\n') {
+        if (isVowel(x)) vowel++;
+        cin.get(x);
+    }
+
+    cout << "There are " << vowel << " vowels in this sentence." << endl;
+    return 0;
+}
