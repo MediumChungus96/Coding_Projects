@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+#ifndef Royalty
+#define Royalty
+
+namespace royaltyRates {
+    inline constexpr double rate2 = .125;
+    inline constexpr double rate3one = .10;
+    inline constexpr double rate3two = .14;
+    inline constexpr double fixedOne = 5000;
+    inline constexpr double fixedTwo = 20000;
+    inline constexpr double threshold = 4000;
+}
+
+#endif
+
+int main() {
+
+    double netPrice, copiesSold;
+    double royalty1, royalty2, royalty3;
+    
+    cout << "Plese enter copies sold: ";
+    cin >> copiesSold;
+    cout << endl;
+
+    cout << "Please enter net price of the novel: ";
+    cin >> netPrice;
+    cout << endl;
+
+
+
+    royalty1 = royaltyRates::fixedOne + royaltyRates::fixedTwo;
+
+    royalty2 = (netPrice * copiesSold) * royaltyRates::rate2;
+
+    if (copiesSold <= royaltyRates::threshold) {
+        royalty3 = (copiesSold * netPrice) * royaltyRates::rate3one ;
+    } else {
+        royalty3 = ((royaltyRates::rate3one * netPrice) * royaltyRates::threshold) + (royaltyRates::rate3two * netPrice * (copiesSold - royaltyRates::threshold));
+    }
+
+    cout << fixed << setprecision(2);
+    cout << "Royalty option1: " << royalty1 << ", " << "Royalty option2: " << royalty2 << ", " << "Royalty option3: " << royalty3 << endl;
+
+    if (royalty1 >= royalty2 && royalty1 >= royalty3) {
+    cout << "The best option is option 1." << endl;
+    } else if (royalty2 >= royalty1 && royalty2 >= royalty3) {
+    cout << "The best option is option 2." << endl;
+    } else {
+    cout << "The best option is option 3." << endl;
+    }
+
+    return 0;
+}
