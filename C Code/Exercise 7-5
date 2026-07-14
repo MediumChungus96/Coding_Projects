@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+void getData(string &status, int &numChildren, double &grossSalary, double &pensionPercent){
+    cout << "please indicate your marital status: ";
+    cin >> status;
+    cout << endl;
+    
+    if (status == "m" || status == "M")
+    {
+        cout << "Please enter number of children under 14: ";
+        cin >> numChildren;
+        cout << endl;
+    }
+
+    cout << "Please enter your gross salary: ";
+    cin >> grossSalary;
+    cout << endl;
+    
+    cout << "Please indicate your desired pension percentage: ";
+    cin >> pensionPercent;
+    while (pensionPercent > 6){
+        cout << "Please enter a valid percentage <= 6";
+        cin >> pensionPercent;
+    }
+    cout << endl;
+}
+
+double taxAmount(string status, int numChildren, double grossSalary, double pensionPercent) {
+    double standardExemption;
+    if (status == "m" || status == "M")
+        {standardExemption = 7000;}
+        else
+        {standardExemption = 4000;}
+    
+    double pensionContribution = grossSalary * (pensionPercent/100);
+
+    int dependents = 1;
+    if (status == "m" || status == "M")
+        {
+            dependents = 2 + numChildren;
+        }
+    
+    double personalExemption = 1500 * dependents;
+
+    double taxableIncome = grossSalary - standardExemption - pensionContribution - personalExemption;
+
+    double taxRate;
+    if (taxableIncome <= 15000)
+    {taxRate = .15 * taxableIncome;}
+    else if (taxableIncome >= 15001 && taxableIncome <= 40000)
+    {taxRate = 2250 + (.25 * (taxableIncome - 15000));}
+    else if (taxableIncome > 40000)
+    {taxRate = 8460 + (.35 * (taxableIncome - 40000));}
+
+    return taxRate;
+}
+
+int main() {
+    string status;
+    int numChildren = 0;
+    double grossSalary;
+    double pensionPercent;
+
+    getData(status, numChildren, grossSalary, pensionPercent);
+    
+    double taxOwed = taxAmount(status, numChildren, grossSalary, pensionPercent);
+    
+    cout << fixed << setprecision(2) << "The total amount of taxes owed is:$ " << taxOwed << endl;
+
+    return 0;
+}
