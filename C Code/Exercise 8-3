@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+int lastLargestIndex (int list[], int listSize);
+
+int main() {
+
+    int list[15];
+
+    cout << "Please enter 15 integers: ";
+    
+    for (int i = 0; i < 15; i++) {
+        cin >> list[i];
+    }
+    
+    for (int i = 0; i < 15; i++) {
+        cout << list[i];
+    }
+
+    int firstMaxIndex = 0;
+    for (int i = 0; i < 15; i++) {
+        if (list[i] > list[firstMaxIndex]) {
+            firstMaxIndex = i; 
+        }
+    }
+
+    int lastIndex = lastLargestIndex(list, 15);
+cout << "The position of the last occurrence of the largest element in list is: " << lastIndex << endl;
+cout << "The largest element in list is: " << list[lastIndex] << endl;
+
+
+    return 0;
+}
+
+int lastLargestIndex(int list [], int listSize) {
+    int maxIndex = 0;
+        for (int i = 0; i < 15; i++) {
+        if (list[i] >= list[maxIndex]) {
+            maxIndex = i; 
+        }
+    }
+
+    return maxIndex;
+}
