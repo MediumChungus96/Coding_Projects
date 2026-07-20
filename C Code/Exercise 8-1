@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+double alpha[50];
+
+for (int index = 0; index < 50; index++)
+    if (index < 25)
+        alpha[index] = index * index;
+    else
+        alpha[index] = 3 * index;
+
+for (int index = 0; index < 50; index++) {
+    cout << alpha[index];
+    if ((index + 1) % 10 == 0)
+        cout << endl;
+    else
+        cout << " ";
+}
+
+
+    return 0;
+}
