@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+struct computerType
+{
+    string manufacturer;
+    string modelType;
+    string processorType;
+    int ram;
+    int hardDriveSize;
+    int yearBuilt;
+    double price;
+};
+
+
+int main() {
+
+    computerType X;
+
+    cout << "Enter the name of the manufacturer: ";
+    cin >> X.manufacturer;
+    cout << endl;
+
+    cout << "Enter the model of the computer: ";
+    cin >> X.modelType;
+    cout << endl;
+
+    cout << "Enter the processor type: ";
+    cin.ignore();
+    getline(cin, X.processorType);
+    cout << endl;
+
+    cout << "Enter the size of RAM (in GB): ";
+    cin >> X.ram;
+    cout << endl;
+
+    cout << "Enter the size of the hard drive (in GB): ";
+    cin >> X.hardDriveSize;
+    cout << endl;
+
+    cout << "Enter the year the computer was built: ";
+    cin >> X.yearBuilt;
+    cout << endl;
+
+    cout << "Enter the price: ";
+    cin >> X.price;
+    cout << endl;
+
+    cout << "Manufacturer: " << X.manufacturer << endl;
+    cout << "Model: " << X.modelType << endl;
+    cout << "Processor: " << X.processorType << endl;
+    cout << "Ram: " << X.ram << endl;
+    cout << "Hard Drive Size: " << X.hardDriveSize << endl;
+    cout << "Year Built: " << X.yearBuilt << endl;
+    cout << fixed << setprecision(2);
+    cout << "Price: $" << X.price << endl;
+
+    return 0;
+}
